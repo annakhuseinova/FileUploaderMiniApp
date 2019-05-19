@@ -1,0 +1,35 @@
+CREATE SCHEMA IF NOT EXISTS fileuploaderapp_db;
+
+CREATE TABLE IF NOT EXISTS authorities (
+	user_id INT NOT NULL,
+    role_id INT NOT NULL,
+
+    PRIMARY KEY (user_id, role_id),
+    CONSTRAINT foreign_key_user_id FOREIGN KEY (user_id)
+    REFERENCES users(id) ON DELETE NO ACTION  ON UPDATE NO ACTION,
+
+    CONSTRAINT foreign_key_role_id FOREIGN KEY (role_id)
+    REFERENCES roles(id) ON DELETE NO ACTION ON UPDATE NO ACTION
+
+)ENGINE=InnoDB, DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS users(
+
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    login VARCHAR(100) NOT NULL,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    is_active TINYINT(1) NOT NULL
+
+)ENGINE=InnoDB, DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS roles(
+
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL
+
+)ENGINE=InnoDB, DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+INSERT INTO roles(name) VALUES ("ROLE_ADMIN"),("ROLE_USER");

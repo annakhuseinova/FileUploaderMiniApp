@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="eng" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Registration Page</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="css/homepagestyles.css">
+	<link rel="stylesheet" type="text/css" href="css/registrationpagestyles.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="icon" type="text/icon" href="images/logofavicon.png">
+</head>
+<body>
+
+	<div class="container">
+		<main class="main-block">
+			<figure class="sign-in-panel">
+
+				<img src="images/logobig.png" width="50px" height="50px">
+				<h4 style="margin-bottom: 0px">Please, register</h4>
+			<form class="register-form" th:action="@{/registration}"  th:object="${systemUser}" method="post">
+				<div class="alert alert-danger" role="alert" th:if="${UserCreationError != null}">
+					<span th:text="${UserCreationError}"/>
+				</div>
+				<div class="error-message" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"/>
+				<div class="form-group">
+					<input type="text" class="form-control" id="login" th:field="*{login}"  aria-describedby="nameHelp" placeholder="Login">
+				</div>
+                <div class="error-message" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+				<div class="form-group">
+					<input type="text" class="form-control" id="firstName" th:field="*{firstName}"  aria-describedby="nameHelp" placeholder="First name">
+				</div>
+                <div class="error-message" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"/>
+				<div class="form-group">
+					<input type="text" class="form-control" id="lastName" th:field="*{lastName}"  aria-describedby="nameHelp" placeholder="Last Name">
+				</div>
+                <div class="error-message" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
+		    <div class="form-group">
+    			<input type="email" class="form-control" id="exampleInputEmail1" th:field="*{email}"  aria-describedby="emailHelp" placeholder="Email">
+ 			</div>
+             <div class="error-message" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"/>
+  		 	<div class="form-group">
+    			<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" th:field="*{password}">
+  		 	</div>
+                <div class="error-message" th:if="${#fields.hasErrors('repeatPassword')}" th:errors="*{repeatPassword}"></div>
+                <div class="form-group">
+                    <input type="password" th:field="*{repeatPassword}" class="form-control repeat-password" id="exampleInputPassword2" placeholder="Please, repeat your password" style="margin-top: 0
+">
+                </div>
+                <div class="bottom-buttons">
+                    <button type="submit" class="btn btn-primary submit-button" >Register</button>
+                    <a class="btn btn-primary" th:href="@{/}" role="button">Back home</a>
+                </div>
+                <p class="year-signature"> FileUploaderApp &copy; 2019 </p>
+				</form>
+			</figure>
+		</main>
+	</div>
+		
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

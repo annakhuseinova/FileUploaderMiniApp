@@ -1,0 +1,57 @@
+.main-block {
+    
+    margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.sign-in-panel {
+
+	width: 400px;
+	min-height: 600px;
+	box-shadow:  0 0 5px rgba(0,0,0,0.5); 
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 15px;
+	position: relative;
+}
+.register-form {
+
+    margin-top: 5px;
+	text-align: center;
+	width: 250px;
+}
+
+.repeat-password-input {
+
+	margin-top: 5px;
+}
+.repeat-password {
+
+	margin-top: 5px;
+}
+
+
+input {
+
+	width: 150px;
+}
+
+.year-signature {
+    
+    text-align: center;
+	margin-top: 15px;
+}
+
+.bottom-buttons {
+	display: flex;
+	justify-content: center;
+}
+
+.submit-button {
+	margin-right: 15px;
+}

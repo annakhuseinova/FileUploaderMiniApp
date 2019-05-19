@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<title>Main Page</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/homepagestyles.css">
+	<link rel="icon" type="text/ictemplate might not exist or might not be accessible by any of the configured Template Resolverson" href="images/logofavicon.png">
+	<link rel="stylesheet" type="text/css" href="css/mainpagestyles.css">
+</head>
+<body>
+	<div class="container">
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" th:href="@{/}">FileUploaderApp</a>
+			<img src="images/logo.png">
+  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    			<span class="navbar-toggler-icon"></span>
+  			</button>
+		    <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+            <p class="user-login" style="color: white" th:text="${currentUserLogin}"/>
+			<form method="post" th:action="@{/logout}">
+				<input class="btn btn-dark" type="submit" value="Logout">
+			</form>
+
+		</nav>
+	</header>
+	<main class="main">
+        <div style="min-height: 90%">
+            <h3 class="uploaded-files-signature">Uploaded Files:</h3>
+            <div class="uploaded-files-panel">
+				<p th:if="${listOfFilesInfos.isEmpty()}" class="no-files-uploaded-signature">You don't have any uploaded files yet.</p>
+				<ul th:each="fileInfo : ${listOfFilesInfos}" class="list-of-uploaded-files">
+					<li style="display: flex; align-items: center" >
+						<span style="display: block" th:text="${fileInfo.getFileName()}" class="file-name"/>
+						<span style="display: block" th:text="${fileInfo.getFileSize()}" class="file-info file-size"/>
+						<span style="display: block" th:text="${fileInfo.getLastModificationDate()}" class="file-info file-last-modification-date-time"/>
+						<div class="group-of-file-buttons">
+							<a class="btn btn-outline-dark"  th:href="${fileInfo.getDownloadUrl()}" role="button" >Download</a>
+							<a class="btn btn-outline-dark" th:href="${fileInfo.getDeleteUrl()}" role="button">Delete</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+            <form class="file-upload-form" th:action="@{/main}" method="post" enctype= "multipart/form-data">
+				<input type="submit" name="submit"  value="Upload file">
+                <input type="file" name="file" style="margin-left: 10px">
+            </form>
+        </div>
+        <div class="right-panel">
+			<div class="alert alert-danger" role="alert" th:if="${nullFileError != null}">
+				<span th:text="${nullFileError}" class="error-message"/>
+			</div>
+        </div>
+	</main>
+	<footer class="footer">
+
+		<p>All rights reserved &copy;</p>
+	</footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<title>FileIploaderApp Home Page</title>
+	<meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/homepagestyles.css">
+	<link rel="icon" type="text/icon" href="images/logofavicon.png">
+</head>
+<body>
+<div class="container">
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" th:href="@{/}">FileUploaderApp</a>
+			<img src="images/logo.png">
+  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    			<span class="navbar-toggler-icon"></span>
+  			</button>
+		    <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+			<div sec:authorize="isAuthenticated()">
+				<a class="btn btn-dark" th:href="@{/main}" role="button">Profile</a>
+			</div>
+		</nav>
+	</header>
+	<main class="main">
+		<div class="panels">
+			<figure class="registration-panel">
+				<h5 class="registration panel signature">New to FileUploaderApp? Register!</h5>
+				<a class="btn btn-primary button" th:href="@{/registration}" role="button">Registration</a>
+			</figure>
+			<figure class="authorization-panel" sec:authorize="isAnonymous()">
+				<h5 class="authorization panel signature">Already have an account? Sign in!</h5>
+				<a class="btn btn-primary button" th:href="@{/signin}" role="button">Sign in</a>
+			</figure>
+		</div>
+	</main>
+	<footer class="footer">
+		<p>All rights reserved &copy;</p>
+	</footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

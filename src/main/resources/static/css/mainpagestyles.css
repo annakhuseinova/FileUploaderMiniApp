@@ -1,0 +1,97 @@
+.main {
+
+	display: flex;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+}
+.uploaded-files-signature {
+
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.uploaded-files-panel {
+
+	min-height: 570px;
+	width: 700px;
+	background-color: white;
+	border: 1px solid black;
+	overflow: scroll;
+	position: relative;
+}
+
+.file-info {
+
+	font-size: 17px;
+}
+
+.file-size {
+
+	position: absolute;
+	left: 270px;
+
+}
+.file-name {
+
+	width: 220px;
+	overflow: hidden;
+}
+.file-last-modification-date-time {
+	margin-left: 10px;
+	position: absolute;
+	left: 340px;
+}
+
+.no-files-uploaded-signature {
+	font-weight: bold;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.group-of-file-buttons {
+	display: inline;
+	position: absolute;
+	right: 10px;
+
+}
+
+.group-of-file-buttons a {
+	height: 30px;
+	width: 70px;
+	font-size: 10px;
+	box-shadow:  0 0 5px rgba(0,0,0,0.5);
+}
+.list-of-uploaded-files {
+
+	list-style-type: none;
+	margin-top: 20px;
+}
+
+.file-upload-form {
+
+	display: flex;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+.upload-file-choice-label:hover {
+	color: #fff;
+	background-color: #343a40;
+	border-color: #343a40;
+}
+
+
+.right-panel {
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 750px;
+    height: 570px;
+    margin-left: 30px;
+}
+
+.user-login {
+   margin-top: 17px;
+    margin-right: 20px;
+}

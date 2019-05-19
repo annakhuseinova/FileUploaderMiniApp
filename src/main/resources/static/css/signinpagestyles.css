@@ -1,0 +1,46 @@
+
+.container, body {
+
+	background-color: white;
+}
+.main-block {
+    
+    margin-top: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.sign-in-panel {
+
+	width: 400px;
+	height: 500px;
+	box-shadow:  0 0 5px rgba(0,0,0,0.5); 
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 15px;
+}
+.sign-in-form {
+    margin-top: 10px;
+	text-align: center;
+}
+
+.submit-button {
+
+	margin-right: 15px;
+}
+
+.bottom-buttons {
+
+	display: flex;
+	justify-content: center;
+}
+
+.year-signature {
+    
+    text-align: center;
+	margin-top: 15px;
+}
